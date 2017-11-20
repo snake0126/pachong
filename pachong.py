@@ -13,6 +13,3 @@ for Idnum in postid:
         print UrlUser
 
 
-
-#response = urllib2.urlopen("http://www.moko.cc/post/1254876.html")
-#print response.read()
