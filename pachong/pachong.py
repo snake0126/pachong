@@ -42,4 +42,6 @@ for Idnum in postid:
             #print("wget -P /tmp/testmoko"+rrimglist)
             #commands.getoutput("wget\ -\P\ /tmp/testmoko"+rrimglist)
             urllib.urlretrieve(rrimglist, finename)
-            print finename + ' ok!'
+            #print finename + ' ok!'
+
+
