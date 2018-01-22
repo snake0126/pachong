@@ -25,7 +25,7 @@ lowtemp = int(lowtemp)
 lowtempC = ((lowtemp)-32.0)//1.8+1
 
 todayweather = datadict[u'query'][u'results'][u'channel'][u'item'][u'forecast'][0][u'text']
-weatherlist = { 'Showers': u'阵雨', 'Snow': u'雪' ,'Rain': u'雨' , 'Rain And Snow':'雨夹雪', 'Partly Cloudy':'局部阴天', 'Snow Showers':u'阵雪'}
+weatherlist = { 'Showers': u'阵雨', 'Snow': u'雪' ,'Rain': u'雨' , 'Rain And Snow':u'雨夹雪', 'Partly Cloudy':u'局部阴天', 'Snow Showers':u'阵雪'}
 
 print"%s:%s" % (u"今日天气", weatherlist[todayweather])
 print"%s:%s%s" % (u"今日最高温度", hightempC, u'°C')
