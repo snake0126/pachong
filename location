@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+#coding=utf-8
+
+import xlrd
+import urllib2
+import json
+import os
+from pprint import pprint
+from collections import OrderedDict
+
+data = xlrd.open_workbook("/Users/snake/Desktop/allnodeip.xlsx")
+table = data.sheets()[0]
+Name = table.col_values(0)
+Namelist = []
+
+for hostname in range(0,len(Name)):
+    utfname = Name[hostname]
+    Namelist.append(utfname)
+
+#print Namelist
+
+def location(ipaddr):
+    url = "http://api.ipstack.com/"
+    api_key="?access_key=9e8dd258fffebdf3e5e42cc1f163166d"
+    ipadd = ipaddr
+    realurl = url+ipadd+api_key
+    urlread = urllib2.urlopen(realurl)
+    resp = urlread.read()
+    datadict = json.loads(resp)
+    #pprint(datadict)
+    print '{%s:"%s", %s:"%s", %s:"%s"},' % ('city',datadict[u'city'],'latitude',datadict[u'latitude'],'longitude',datadict[u'longitude'])
+
+for i in range(0,len(Namelist)):
+    location(Namelist[i])
