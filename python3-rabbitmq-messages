@@ -1,0 +1,16 @@
+#coding=utf-8
+
+import urllib3
+import json
+from pprint import pprint
+from collections import OrderedDict
+http = urllib3.PoolManager()
+url = "https://xxx.yyy.com/api/queues/pushHostPRD/gps.Push.Kerry.Queue"
+userdata = urllib3.make_headers(basic_auth='username:password')
+data1dict = {}
+realurl = url
+urlread = http.request('GET', realurl, headers=userdata)
+print(urlread)
+datadict = json.loads(urlread.data)
+print(datadict)
+print("%s:%s"%("当前message数量",datadict['messages']))   
